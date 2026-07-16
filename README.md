@@ -1,8 +1,23 @@
-# trevortibbetts.github.io
-## Welcome to my super cool github website. 
-This is a learning enviroment where I can show off my new github/git skills
-### Data Science Book
-I have selected the book, *Fundamental Numerical Methods and Data Analysis* by George W. Collins, as a book of interest. It is hosted [here](https://ads.harvard.edu/books/1990fnmd.book/Bookfrnt.pdf) through Harvard University. I am still new to the field of data analysis and I thought a book labeled beginner would best suit me. This book goes over different statistics and tests to perform on data. It should give me a foundation for this quantitative field. 
+# Trevor Tibbetts
+**Geospatail Data Scientist** 
 
-### Selected Dataset:
-I am interested in election result data. For my Master's thesis I will be researching spatial electoral polarization. This is using election data to quantify polarization between the two dominate political parties in the United States. I want to extend this research in spatial polarization to redraw congressional districts. I have a goal of gerrymandering the maps to draw them completely spatialy polarized, completely non-polarized, and a happy medium between the two. I will use this [dataset](https://github.com/21MetcalfJ/2024Precincts), found on github that contains all the election results from every precinct in the United States ~177,000, and perhaps 2020 Census data to conduct my analysis. 
+### About 
+With a background in political science from Loyola University Chicago and training as a quantitative geographer from San Diego State University, I specialize in political geography. My work focuses on leveraging open-source Python libraries to apply quantitative spatial methodologies to electoral data. I am passionate about uncovering spatial patterns in election results and developing analytical tools to better understand complex processes like redistricting and political polarization.
+
+### Research
+  **Master's Thesis:** *From Distribution to a Map: A Spatially Explicit Index for Measuring Electoral Polarization*
+- Extended a novel index to quantify polarization between political parties using 2016 and 2020 presidential election results at the precinct level.
+- Applied this methodology to model and compare alternative congressional redistricting scenarios.
+- Conducted comparative analyses between spatially explicit and aspatial polarization methodologies.
+  
+### Projects
+- **GerrySD:** A big data geospatial application framed as a citizen science initiative, allowing users to explore how community members might redistrict San Diego County’s supervisorial districts.
+- **Subcultural Global City Migration Map:** A spatial analysis aligned with Saskia Sassen's "Global City" concept; identifies cultural hubs by mapping the migration of drag performers from their hometowns to their current residences following participation on *RuPaul’s Drag Race*.
+  
+### Technical Skills
+*   **Programming & Data Analysis:** Python (Pandas, GeoPandas, PySAL), R, JavaScript (p5.js), Git/GitHub, Jupyter Notebooks.
+*   **Spatial & Data Governance:** ArcGIS Pro, ArcGIS Online, data cleaning, QA/QC documentation, and building reproducible, transparent, and shareable spatial workflows.
+*   **Tools & Systems:** Google Workspace, Tableau, CRM systems, LaTeX, Adobe Illustrator.
+
+---
+*Portfolio & Research Samples*
