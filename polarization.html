@@ -66,38 +66,31 @@
     }
 
     h2 {
-      font-size: 1.5rem;
-      margin-top: 40px;
-      margin-bottom: 16px;
+      font-size: 1.35rem;
+      margin-top: 32px;
+      margin-bottom: 12px;
       border-bottom: 1px solid var(--border-color);
-      padding-bottom: 8px;
+      padding-bottom: 6px;
     }
 
     p {
       margin-bottom: 16px;
     }
 
-    .abstract-box {
+    .content-box {
       background-color: var(--card-bg);
       border: 1px solid var(--border-color);
       border-radius: 12px;
       padding: 24px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
-      margin-bottom: 40px;
+      margin-bottom: 24px;
     }
 
-    .keywords {
-      margin-top: 16px;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    /* Gallery Grid for Maps */
     .map-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 24px;
-      margin-top: 24px;
+      margin-bottom: 32px;
     }
 
     @media (min-width: 768px) {
@@ -112,8 +105,6 @@
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
-      display: flex;
-      flex-direction: column;
     }
 
     .map-card img {
@@ -127,14 +118,11 @@
       padding: 16px;
       font-size: 0.9rem;
       color: var(--text-muted);
-      flex-grow: 1;
-      display: flex;
-      align-items: center;
     }
 
     .back-link {
       display: inline-block;
-      margin-top: 48px;
+      margin-top: 36px;
       text-decoration: none;
       color: var(--accent);
       font-weight: 500;
@@ -154,78 +142,43 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <h1>Spatial Electoral Polarization</h1>
-  <p class="tagline">Master's Thesis Research: Measuring Partisan Clustering Across Geographic Scales</p>
+  <h1>Measuring Spatial Electoral Polarization</h1>
+  <p class="tagline">Master's Thesis Research: Developing a spatially explicit index to evaluate partisan configurations across geographic scales.</p>
 
   <div class="meta-box">
-    <strong>Methods & Tools:</strong> Python, PySAL, Spatial Statistics, Graph Theory, Precinct-level election data<br>
-    <strong>Status:</strong> MS Thesis / Conference Presentation
+    <strong>Tools & Methods:</strong> Python, PySAL, GeoPandas, Graph Theory, Spatial Statistics • <strong>Keywords:</strong> Spatial Polarization, Electoral Geography, Redistricting
   </div>
 
-  <h2>Abstract</h2>
-  <div class="abstract-box">
-    <p>
-      Electoral polarization in the United States is often analyzed through ideological or institutional frameworks, yet electoral outcomes pose an inherently geographic problem. While maps reveal clear patterns of partisan clustering, most empirical measures treat geographic units as independent observations and do not formally account for spatial relationships. This thesis addresses this gap by applying a spatially explicit polarization framework based on the <em>S</em> statistic, which measures how similar political preferences form geographically contiguous components.
-    </p>
-    <p>
-      Using contemporary presidential election returns at both state and precinct scales, the analysis constructs intersection graphs that combine attribute similarity (Democratic vote share) with geographic adjacency. The framework is used to evaluate how polarization varies across spatial scales and classification schemes, comparing bipolar (red–blue) representations with multipolar categorizations of partisan intensity. The approach is further applied to a case study of California's Proposition 50 redistricting plans to examine whether changes in congressional district boundaries alter the spatial structure of representation. The results show that both plans produce the same observed spatial polarization statistic under bipolar classification, while generating slightly different permutation-based p-values due to plan-specific adjacency structures.
-    </p>
-    <p>
-      The results show that electoral polarization is strongly structured in space at multiple geographic scales. While <em>S</em> values are highest under bipolar classifications, substantial spatial polarization persists under multipolar schemes that capture intermediate partisan variation. Comparisons with traditional aspatial measures demonstrate that distribution-based metrics consistently understate the extent of polarization observed in spatial configurations.
-    </p>
-    <p>
-      This thesis contributes to electoral geography by introducing a formal and reproducible measure of spatial electoral polarization that captures the organization of vote returns across space. The findings highlight that understanding electoral polarization requires attention not only to how votes differ, but to how those differences are arranged and connected across the electoral landscape.
-    </p>
-    <div class="keywords">
-      <strong>Keywords:</strong> Spatial Polarization, Electoral Geography, Graph Theory, Redistricting, <em>S</em> Statistic
-    </div>
+  <div class="content-box">
+    <h2>Project Overview</h2>
+    <p>While traditional electoral analysis maps vote distributions, standard metrics often treat geographic units as independent observations without formally accounting for spatial adjacency. This research addresses that gap by introducing a spatially explicit polarization framework based on the $S$ statistic, which measures how political preferences organize into contiguous geographic components.</p>
+
+    <h2>Significance</h2>
+    <p>Understanding electoral polarization requires looking beyond aspatial, distribution-based metrics that consistently understate political division. By constructing intersection graphs that merge attribute similarity with geographic connectivity, this framework formalizes how vote differences are arranged and structured across the landscape.</p>
+
+    <h2>Key Findings</h2>
+    <p>Applying this methodology to contemporary U.S. presidential returns demonstrates that electoral polarization is intensely structured in space at multiple geographic scales. While $S$ values peak under bipolar classifications, substantial spatial polarization persists under multipolar schemes. Furthermore, redistricting evaluations reveal that while alternative boundary plans may maintain similar observed polarization statistics, they can generate distinct permutation-based significance structures driven by plan-specific adjacency networks.</p>
   </div>
 
-  <h2>Selected Scale & Multipolarization Visualizations</h2>
-  <p>
-    The following maps showcase application results across national CONUS precinct scales, state aggregate levels, and Chicagoland regional geometries under both bipolar and multipolar classification schemes.
-  </p>
-
+  <!-- Map Visualizations Grid -->
   <div class="map-grid">
     <div class="map-card">
-      <img src="images/002CONUS_bp_2016.jpg" alt="2016 U.S. Presidential Election CONUS Precinct Bi-Polarization">
-      <div class="map-caption">2016 U.S. Presidential Election CONUS Precinct Bi-Polarization ($S = 0.9723$)</div>
+      <img src="assets/002CONUS_bp_2016_2.jpg" alt="2016 U.S. Presidential Election CONUS Precinct Bi-Polarization">
+      <div class="map-caption">
+        <strong>2016 Presidential Precinct Bi-Polarization:</strong> Spatial distribution of Democratic and Republican voting components across the contiguous U.S. ($S = 0.9723$, $p = 0.0010$).
+      </div>
     </div>
-
     <div class="map-card">
-      <img src="images/001CONUSk3_2016.jpg" alt="2016 U.S. Presidential Election CONUS Precinct Three-Group Multipolarization">
-      <div class="map-caption">2016 U.S. Presidential Election CONUS Precinct Three-Group Multipolarization ($S = 0.9441$)</div>
+      <img src="assets/003CONUSBP_2020_2.jpg" alt="2020 U.S. Presidential Election Precinct CONUS Bi-Polarization">
+      <div class="map-caption">
+        <strong>2020 Presidential Precinct Bi-Polarization:</strong> Multi-scale spatial configuration analysis confirming structural persistence of polarization ($S = 0.9722$, $p = 0.0001$).
+      </div>
     </div>
+  </div>
 
-    <div class="map-card">
-      <img src="images/003CONUSBP_2020.jpg" alt="2020 U.S. Presidential Election Precinct CONUS Bi-Polarization">
-      <div class="map-caption">2020 U.S. Presidential Election Precinct CONUS Bi-Polarization ($S = 0.9722$)</div>
-    </div>
-
-    <div class="map-card">
-      <img src="images/004CONUSk3_2020.jpg" alt="2020 U.S. Presidential Election CONUS Precinct Three-Group Multipolarization">
-      <div class="map-caption">2020 U.S. Presidential Election CONUS Precinct Three-Group Multipolarization ($S = 0.9440$)</div>
-    </div>
-
-    <div class="map-card">
-      <img src="images/007FECbp_2016.jpg" alt="2016 U.S. Presidential Election State-Level Bi-Polarization">
-      <div class="map-caption">2016 U.S. Presidential Election State-Level Bi-Polarization ($S = 0.9149$)</div>
-    </div>
-
-    <div class="map-card">
-      <img src="images/005FECbp_20.jpg" alt="2020 U.S. Presidential Election State-Level Bi-Polarization">
-      <div class="map-caption">2020 U.S. Presidential Election State-Level Bi-Polarization ($S = 0.9574$)</div>
-    </div>
-
-    <div class="map-card">
-      <img src="images/009ChiBP_20.jpg" alt="2020 U.S. Presidential Election Chicagoland Precincts Bi-Polarization">
-      <div class="map-caption">2020 U.S. Presidential Election Chicagoland Precincts Bi-Polarization ($S = 0.9775$)</div>
-    </div>
-
-    <div class="map-card">
-      <img src="images/010CHIk5_2020.jpg" alt="2020 U.S. Presidential Election Results Chicagoland Precincts Five-Group Multipolarization">
-      <div class="map-caption">2020 U.S. Presidential Election Chicagoland Precincts Five-Group Multipolarization ($S = 0.986$)</div>
-    </div>
+  <div class="content-box">
+    <h2>Potential Extensions</h2>
+    <p>Future development of this framework includes incorporating the $S$ statistic alongside complementary spatial autocorrelation measures to cross-validate regional clustering tendencies. Additionally, testing the methodology on datasets tracking members of the U.S. House of Representatives presents an opportunity to measure and visualize polarization directly within legislative and political bodies.</p>
   </div>
 
   <p>
