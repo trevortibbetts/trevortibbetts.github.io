@@ -86,6 +86,26 @@
       margin-bottom: 24px;
     }
 
+    .notice-box {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+      color: #1e3a8a;
+    }
+
+    .notice-box a {
+      color: var(--accent);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .notice-box a:hover {
+      text-decoration: underline;
+    }
+
     .map-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -149,27 +169,31 @@
     <strong>Tools & Methods:</strong> Python, PySAL, GeoPandas, Graph Theory, Spatial Statistics • <strong>Keywords:</strong> Spatial Polarization, Electoral Geography, Redistricting
   </div>
 
+  <div class="notice-box">
+    This page contains a snippet of the project. To read the full thesis, visit <a href="https://www.proquest.com" target="_blank" rel="noopener noreferrer">From Distribution to a Map: A Spatially Explicit Index for Measuring Electoral Polarization (Department of Geography - ProQuest)</a>.
+  </div>
+
   <div class="content-box">
     <h2>Project Overview</h2>
-    <p>While traditional electoral analysis maps vote distributions, standard metrics often treat geographic units as independent observations without formally accounting for spatial adjacency. This research addresses that gap by introducing a spatially explicit polarization framework based on the $S$ statistic, which measures how political preferences organize into contiguous geographic components.</p>
+    <p>While traditional electoral analysis maps vote distributions, standard metrics often treat geographic units as independent observations without formally accounting for spatial adjacency. This research addresses that gap by introducing a spatially explicit polarization framework, which measures how electoral outcomes organize into contiguous geographic components.</p>
 
     <h2>Significance</h2>
     <p>Understanding electoral polarization requires looking beyond aspatial, distribution-based metrics that consistently understate political division. By constructing intersection graphs that merge attribute similarity with geographic connectivity, this framework formalizes how vote differences are arranged and structured across the landscape.</p>
 
     <h2>Key Findings</h2>
-    <p>Applying this methodology to contemporary U.S. presidential returns demonstrates that electoral polarization is intensely structured in space at multiple geographic scales. While $S$ values peak under bipolar classifications, substantial spatial polarization persists under multipolar schemes. Furthermore, redistricting evaluations reveal that while alternative boundary plans may maintain similar observed polarization statistics, they can generate distinct permutation-based significance structures driven by plan-specific adjacency networks.</p>
+    <p>Applying this methodology to contemporary U.S. presidential returns demonstrates that electoral polarization is intensely structured in space at multiple geographic scales. While the indices values peak under bipolar classifications, substantial spatial polarization persists under multipolar schemes. Furthermore, redistricting evaluations reveal that while alternative boundary plans may maintain similar observed polarization statistics, they can generate distinct permutation-based significance structures driven by plan-specific adjacency networks.</p>
   </div>
 
   <!-- Map Visualizations Grid -->
   <div class="map-grid">
     <div class="map-card">
-      <img src="assets/002CONUS_bp_2016_2.jpg" alt="2016 U.S. Presidential Election CONUS Precinct Bi-Polarization">
+      <img src="assets/002CONUS_bp_2016.png" alt="2016 U.S. Presidential Election CONUS Precinct Bi-Polarization" onerror="this.style.display='none';">
       <div class="map-caption">
         <strong>2016 Presidential Precinct Bi-Polarization:</strong> Spatial distribution of Democratic and Republican voting components across the contiguous U.S. ($S = 0.9723$, $p = 0.0010$).
       </div>
     </div>
     <div class="map-card">
-      <img src="assets/003CONUSBP_2020_2.jpg" alt="2020 U.S. Presidential Election Precinct CONUS Bi-Polarization">
+      <img src="assets/003CONUSBP_2020.png" alt="2020 U.S. Presidential Election Precinct CONUS Bi-Polarization" onerror="this.style.display='none';">
       <div class="map-caption">
         <strong>2020 Presidential Precinct Bi-Polarization:</strong> Multi-scale spatial configuration analysis confirming structural persistence of polarization ($S = 0.9722$, $p = 0.0001$).
       </div>
