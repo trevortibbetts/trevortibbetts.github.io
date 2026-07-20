@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GerrySD: Interactive Local Redistricting | Trevor Tibbetts</title>
+  <style>
+    :root {
+      --bg-color: #fafafa;
+      --card-bg: #ffffff;
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --border-color: #e5e7eb;
+    }
+
+    body { 
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; 
+      max-width: 900px; 
+      margin: 48px auto; 
+      padding: 0 20px; 
+      line-height: 1.6; 
+      background-color: var(--bg-color);
+      color: var(--text-main);
+    }
+
+    nav { 
+      margin-bottom: 36px; 
+    }
+
+    nav a { 
+      margin-right: 16px; 
+      text-decoration: none; 
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--accent);
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      margin-bottom: 8px;
+    }
+
+    .tagline { 
+      color: var(--text-muted); 
+      margin-top: 0; 
+      font-size: 1.1rem;
+      margin-bottom: 32px;
+    }
+
+    .meta-box {
+      background-color: #f3f4f6;
+      padding: 16px 20px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    .meta-box strong {
+      color: var(--text-main);
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      margin-top: 32px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 6px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    .content-box {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+      margin-bottom: 24px;
+    }
+
+    .iframe-container {
+      position: relative;
+      width: 100%;
+      height: 600px;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+      margin-bottom: 24px;
+    }
+
+    .iframe-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .instructions-box {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+      color: #1e3a8a;
+    }
+
+    .instructions-box h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .instructions-box ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .instructions-box li {
+      margin-bottom: 6px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 36px;
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="resume.html">Resume</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <h1>GerrySD: Local Redistricting Web Platform</h1>
+  <p class="tagline">An open-source interactive mapping tool helping everyday people design and test San Diego voting districts.</p>
+
+  <div class="meta-box">
+    <strong>Tools & Methods:</strong> JavaScript, p5.js, Leaflet, Turf.js, Python, PySAL (Tobler Interpolation) • <strong>Context:</strong> Collaborative Final Project (GEOG 594)
+  </div>
+
+  <div class="content-box">
+    <h2>Project Overview</h2>
+    <p>Drawing political boundaries is usually left to experts behind closed doors, making it tough for regular citizens to get involved. <strong>GerrySD</strong> fixes that by giving people an easy way to draw their own map of San Diego County and see political stats update instantly.</p>
+
+    <h2>How the Data Works</h2>
+    <p>We took real 2024 election numbers and mixed them with census tracts. Because the borders didn't match up naturally, we used smart spatial math to estimate voter trends clearly. The app combines <strong>Leaflet</strong> for the map, <strong>p5.js</strong> to run things smoothly, and <strong>Turf.js</strong> to calculate neighborhood areas right in your browser.</p>
+  </div>
+
+  <h2>Interactive Platform</h2>
+  
+  <div class="instructions-box">
+    <h3>How to Play & Map Rules</h3>
+    <ul>
+      <li><strong>Draw 4 Lines:</strong> You need to draw exactly 4 lines to split up the county.</li>
+      <li><strong>Intersection Rules:</strong> 
+        <ul>
+          <li>Your <strong>first line</strong> must touch two separate spots on the outer county border.</li>
+          <li>Every <strong>next line</strong> must cross either another line you already drew or the county border at least 2 times.</li>
+        </ul>
+      </li>
+      <li><strong>District Output:</strong> The app checks your 4 lines to make sure they cleanly cut the county into 5 distinct voting districts without missing any neighborhoods.</li>
+      <li><strong>Explore & Save:</strong> Zoom in, sketch your lines, watch the stats change live, and download your finished map as a GeoJSON file.</li>
+    </ul>
+  </div>
+
+  <div class="iframe-container">
+    <iframe src="https://editor.p5js.org/ttibbetts5766/full/iRUwrvRr3" title="GerrySD Interactive Redistricting Map"></iframe>
+  </div>
+
+  <div class="content-box">
+    <h2>Next Steps & Future Goals</h2>
+    <p>This tool makes local mapping fun and accessible, letting people save and share their custom district ideas. Looking ahead, the goal is to turn this into a citizen science project where people can try gerrymandering themselves, helping us study how communities naturally polarize.</p>
+  </div>
+
+  <p>
+    <a href="projects.html" class="back-link">&larr; Back to all projects</a>
+  </p>
+
+</body>
+</html>
