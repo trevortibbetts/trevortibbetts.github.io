@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Subcultural Migration & Urban Cultural Hubs | Trevor Tibbetts</title>
+  <style>
+    :root {
+      --bg-color: #fafafa;
+      --card-bg: #ffffff;
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --border-color: #e5e7eb;
+    }
+
+    body { 
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; 
+      max-width: 900px; 
+      margin: 48px auto; 
+      padding: 0 20px; 
+      line-height: 1.6; 
+      background-color: var(--bg-color);
+      color: var(--text-main);
+    }
+
+    nav { 
+      margin-bottom: 36px; 
+    }
+
+    nav a { 
+      margin-right: 16px; 
+      text-decoration: none; 
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--accent);
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      margin-bottom: 8px;
+    }
+
+    .tagline { 
+      color: var(--text-muted); 
+      margin-top: 0; 
+      font-size: 1.1rem;
+      margin-bottom: 32px;
+    }
+
+    .meta-box {
+      background-color: #f3f4f6;
+      padding: 16px 20px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    .meta-box strong {
+      color: var(--text-main);
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      margin-top: 32px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 6px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    .content-box {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+      margin-bottom: 24px;
+    }
+
+    .map-preview-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+      margin-bottom: 32px;
+    }
+
+    .map-preview-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      background-color: #e5e7eb;
+    }
+
+    .map-preview-caption {
+      padding: 20px;
+    }
+
+    .iframe-container {
+      position: relative;
+      width: 100%;
+      height: 550px;
+      background-color: #e5e7eb;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .iframe-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 36px;
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="resume.html">Resume</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <h1>Mapping Creative Mobility and Urban Cultural Hubs</h1>
+  <p class="tagline">Analyzing the national migration networks of specialized creative talent through spatial data visualization.</p>
+
+  <div class="meta-box">
+    <strong>Tools:</strong> Python, GIS, Spatial Network Analysis, p5.js • <strong>Theme:</strong> Urban Geography & Cultural Economies
+  </div>
+
+  <div class="content-box">
+    <h2>Project Overview</h2>
+    <p>This project applies spatial network visualization to analyze internal migration patterns among entertainment professionals featured on national media platforms[cite: 1]. The resulting map traces individual trajectories from hometown origins to primary career destinations, mapping out intricate networks of professional relocation[cite: 1].</p>
+
+    <h2>Significance</h2>
+    <p>While classical urban economics frameworks traditionally evaluate global command centers through corporate and financial lenses, this research investigates how specialized cultural economies mirror those exact spatial agglomeration trends[cite: 1]. It examines how creative industries cluster in specific metropolitan nodes to optimize visibility, collaboration, and career development[cite: 1].</p>
+
+    <h2>Analytical Findings</h2>
+    <p>The spatial data highlights prominent metropolitan hubs—such as Los Angeles, Las Vegas, Chicago, and New York—as major centers for specialized talent[cite: 1]. Specifically, Los Angeles emerges as a primary focal point influenced by regional media infrastructure, while Las Vegas demonstrates a strong structural pull as a live-entertainment center[cite: 1].</p>
+  </div>
+
+  <!-- Interactive Map Embed Section -->
+  <div class="map-preview-card">
+    <div class="iframe-container">
+      <iframe src="https://editor.p5js.org/ttibbetts5766/full/vCYPFrIG0" title="Interactive Migration Map"></iframe>
+    </div>
+    <div class="map-preview-caption">
+      <p style="margin: 0; color: var(--text-muted);">
+        Interactive network visualization of migration pathways. Data was collected via API requests from the RuPaul’s Drag Race fandom page, processed into spatial geometries, and structured into a GeoDataFrame for spatial analysis.
+      </p>
+    </div>
+  </div>
+
+  <div class="content-box">
+    <h2>Possible Extensions</h2>
+    <p>Future development will focus on optimizing data hygiene and geometry processing to streamline dense network flows, reduce visual overlap, and enhance overall cartographic clarity.</p>
+  </div>
+
+  <p>
+    <a href="projects.html" class="back-link">&larr; Back to all projects</a>
+  </p>
+
+</body>
+</html>
