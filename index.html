@@ -3,53 +3,269 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Trevor Tibbetts</title>
+  <title>Trevor Tibbetts | Geospatial Data Scientist</title>
   <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; max-width: 900px; margin: 48px auto; padding: 0 16px; line-height: 1.6; }
-    nav a { margin-right: 12px; text-decoration: none; }
-    nav { margin-bottom: 28px; }
-    .tagline { color: #444; margin-top: 0; }
-    .card { border: 1px solid #e5e5e5; border-radius: 12px; padding: 16px; margin: 14px 0; }
-    .card h3 { margin: 0 0 6px 0; }
-    .muted { color: #555; }
+    :root {
+      --bg-color: #fafafa;
+      --card-bg: #ffffff;
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --border-color: #e5e7eb;
+    }
+
+    body { 
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; 
+      max-width: 900px; 
+      margin: 48px auto; 
+      padding: 0 20px; 
+      line-height: 1.6; 
+      background-color: var(--bg-color);
+      color: var(--text-main);
+    }
+
+    nav { 
+      margin-bottom: 36px; 
+    }
+
+    nav a { 
+      margin-right: 16px; 
+      text-decoration: none; 
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--accent);
+    }
+
+    /* Hero Section with Profile Picture */
+    .hero {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      margin: 0 0 8px 0;
+    }
+
+    .tagline { 
+      color: var(--accent); 
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin: 0 0 16px 0;
+    }
+
+    .bio-text {
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    /* Profile Picture Placeholder */
+    .profile-img-container {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background-color: #e5e7eb;
+      border: 3px solid var(--border-color);
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      padding: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+    }
+
+    .profile-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Section Headings */
+    h2 {
+      font-size: 1.35rem;
+      margin-top: 40px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 6px;
+    }
+
+    /* Featured Cards */
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .featured-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .card { 
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color); 
+      border-radius: 12px; 
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .card h3 { 
+      margin: 0 0 8px 0; 
+      font-size: 1.1rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin: 0 0 16px 0;
+    }
+
+    .card-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .card-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Skills Summary Box */
+    .skills-box {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-top: 32px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    .skills-box ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .skills-box li {
+      margin-bottom: 8px;
+    }
+
+    .view-all {
+      display: inline-block;
+      margin-top: 16px;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .view-all:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
+
   <nav>
-    <a href="index.html">Home</a>
+    <a href="index.html" class="active">Home</a>
     <a href="projects.html">Projects</a>
     <a href="resume.html">Resume</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <h1>Trevor Tibbetts</h1>
-  <p class="tagline">Spatial data • political geography • Open Science</p>
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Trevor Tibbetts</h1>
+      <p class="tagline">Geospatial Data Scientist & Political Geographer</p>
+      <p class="bio-text">
+        With a background in political science from Loyola University Chicago and training as a quantitative geographer from San Diego State University, I specialize in leveraging open-source Python workflows and spatial analysis to study electoral data, redistricting, and political polarization.
+      </p>
+    </div>
+    
+    <!-- Profile Picture Placeholder: Drop your image into an 'images' folder and update the src path, or keep the fallback box -->
+    <div class="profile-img-container">
+      <img src="assests/profile.jpg" alt="Trevor Tibbetts" onerror="this.style.display='none'; this.parentNode.innerHTML='<span>Profile Picture Placeholder<br>(images/profile.jpg)</span>';">
+    </div>
+  </div>
+
+  <h2>Featured Projects</h2>
+
+  <div class="featured-grid">
+    <div class="card">
+      <div>
+        <h3>Spatial Electoral Polarization</h3>
+        <p>Master's thesis examining precinct-level election outcomes using spatial statistics and the S-statistic to measure partisan clustering.</p>
+      </div>
+      <a href="polarization.html" class="card-link">Explore thesis &rarr;</a>
+    </div>
+
+    <div class="card">
+      <div>
+        <h3>GerrySD</h3>
+        <p>An interactive open-source mapping tool allowing citizens to experiment with local redistricting and explore community data in San Diego County.</p>
+      </div>
+      <a href="gerrysd.html" class="card-link">Launch tool &rarr;</a>
+    </div>
+
+    <div class="card">
+      <div>
+        <h3>Subcultural Global City Migration</h3>
+        <p>Spatial analysis tracking performer migration patterns and cultural geographies across urban performance networks.</p>
+      </div>
+      <a href="migration.html" class="card-link">View map &rarr;</a>
+    </div>
+  </div>
 
   <p>
-    My research involves using spatial analysis (Python / PySAL / GIS) to study polarization,
-    election outcomes, and cultural mobility.
+    <a href="projects.html" class="view-all">View all projects &rarr;</a>
   </p>
 
-  <h2>Featured</h2>
-
-  <div class="card">
-    <h3>Spatial Electoral Polarization (Elections)</h3>
-    <p class="muted">MS Thesis project: Precinct-level Election Outcomes & the "S" Statistic</p>
-    <a href="projects.html">See details →</a>
+  <h2>Technical Core</h2>
+  <div class="skills-box">
+    <ul>
+      <li><strong>Programming & Analysis:</strong> Python (Pandas, GeoPandas, PySAL), R, JavaScript (p5.js, Leaflet, Turf.js), Git/GitHub, Jupyter Notebooks.</li>
+      <li><strong>Spatial Governance & Workflows:</strong> ArcGIS Pro, ArcGIS Online, reproducible spatial pipelines, data cleaning, and QA/QC documentation.</li>
+      <li><strong>Tools & Systems:</strong> Google Workspace, Tableau, CRM systems, LaTeX, Adobe Illustrator.</li>
+    </ul>
   </div>
 
-  <div class="card">
-    <h3>Drag Queen Migration Map</h3>
-    <p class="muted">Mapping drag performer migration patterns and urban cultural economies.</p>
-    <a href="projects.html">See details →</a>
-  </div>
-
-  <div class="card">
-    <h3>Gerry SD</h3>
-    <p class="muted">Building a UI for public audience to Gerrymander SD County.</p>
-    <a href="projects.html">See details →</a>
-  </div>
-
-  <p><a href="projects.html">View all projects →</a></p>
 </body>
 </html>
