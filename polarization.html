@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spatial Electoral Polarization | Trevor Tibbetts</title>
+  <style>
+    :root {
+      --bg-color: #fafafa;
+      --card-bg: #ffffff;
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --border-color: #e5e7eb;
+    }
+
+    body { 
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; 
+      max-width: 900px; 
+      margin: 48px auto; 
+      padding: 0 20px; 
+      line-height: 1.6; 
+      background-color: var(--bg-color);
+      color: var(--text-main);
+    }
+
+    nav { 
+      margin-bottom: 36px; 
+    }
+
+    nav a { 
+      margin-right: 16px; 
+      text-decoration: none; 
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--accent);
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      margin-bottom: 8px;
+    }
+
+    .tagline { 
+      color: var(--text-muted); 
+      margin-top: 0; 
+      font-size: 1.1rem;
+      margin-bottom: 32px;
+    }
+
+    .meta-box {
+      background-color: #f3f4f6;
+      padding: 16px 20px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    .meta-box strong {
+      color: var(--text-main);
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 40px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    .abstract-box {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+      margin-bottom: 40px;
+    }
+
+    .keywords {
+      margin-top: 16px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Gallery Grid for Maps */
+    .map-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .map-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .map-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .map-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      background-color: #e5e7eb;
+    }
+
+    .map-caption {
+      padding: 16px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 48px;
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="resume.html">Resume</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <h1>Spatial Electoral Polarization</h1>
+  <p class="tagline">Master's Thesis Research: Measuring Partisan Clustering Across Geographic Scales</p>
+
+  <div class="meta-box">
+    <strong>Methods & Tools:</strong> Python, PySAL, Spatial Statistics, Graph Theory, Precinct-level election data<br>
+    <strong>Status:</strong> MS Thesis / Conference Presentation
+  </div>
+
+  <h2>Abstract</h2>
+  <div class="abstract-box">
+    <p>
+      Electoral polarization in the United States is often analyzed through ideological or institutional frameworks, yet electoral outcomes pose an inherently geographic problem. While maps reveal clear patterns of partisan clustering, most empirical measures treat geographic units as independent observations and do not formally account for spatial relationships. This thesis addresses this gap by applying a spatially explicit polarization framework based on the <em>S</em> statistic, which measures how similar political preferences form geographically contiguous components.
+    </p>
+    <p>
+      Using contemporary presidential election returns at both state and precinct scales, the analysis constructs intersection graphs that combine attribute similarity (Democratic vote share) with geographic adjacency. The framework is used to evaluate how polarization varies across spatial scales and classification schemes, comparing bipolar (red–blue) representations with multipolar categorizations of partisan intensity. The approach is further applied to a case study of California's Proposition 50 redistricting plans to examine whether changes in congressional district boundaries alter the spatial structure of representation. The results show that both plans produce the same observed spatial polarization statistic under bipolar classification, while generating slightly different permutation-based p-values due to plan-specific adjacency structures.
+    </p>
+    <p>
+      The results show that electoral polarization is strongly structured in space at multiple geographic scales. While <em>S</em> values are highest under bipolar classifications, substantial spatial polarization persists under multipolar schemes that capture intermediate partisan variation. Comparisons with traditional aspatial measures demonstrate that distribution-based metrics consistently understate the extent of polarization observed in spatial configurations.
+    </p>
+    <p>
+      This thesis contributes to electoral geography by introducing a formal and reproducible measure of spatial electoral polarization that captures the organization of vote returns across space. The findings highlight that understanding electoral polarization requires attention not only to how votes differ, but to how those differences are arranged and connected across the electoral landscape.
+    </p>
+    <div class="keywords">
+      <strong>Keywords:</strong> Spatial Polarization, Electoral Geography, Graph Theory, Redistricting, <em>S</em> Statistic
+    </div>
+  </div>
+
+  <h2>Selected Scale & Multipolarization Visualizations</h2>
+  <p>
+    The following maps showcase application results across national CONUS precinct scales, state aggregate levels, and Chicagoland regional geometries under both bipolar and multipolar classification schemes.
+  </p>
+
+  <div class="map-grid">
+    <div class="map-card">
+      <img src="images/002CONUS_bp_2016.jpg" alt="2016 U.S. Presidential Election CONUS Precinct Bi-Polarization">
+      <div class="map-caption">2016 U.S. Presidential Election CONUS Precinct Bi-Polarization ($S = 0.9723$)</div>
+    </div>
+
+    <div class="map-card">
+      <img src="images/001CONUSk3_2016.jpg" alt="2016 U.S. Presidential Election CONUS Precinct Three-Group Multipolarization">
+      <div class="map-caption">2016 U.S. Presidential Election CONUS Precinct Three-Group Multipolarization ($S = 0.9441$)</div>
+    </div>
+
+    <div class="map-card">
+      <img src="images/003CONUSBP_2020.jpg" alt="2020 U.S. Presidential Election Precinct CONUS Bi-Polarization">
+      <div class="map-caption">2020 U.S. Presidential Election Precinct CONUS Bi-Polarization ($S = 0.9722$)</div>
+    </div>
+
+    <div class="map-card">
+      <img src="images/004CONUSk3_2020.jpg" alt="2020 U.S. Presidential Election CONUS Precinct Three-Group Multipolarization">
+      <div class="map-caption">2020 U.S. Presidential Election CONUS Precinct Three-Group Multipolarization ($S = 0.9440$)</div>
+    </div>
+
+    <div class="map-card">
+      <img src="images/007FECbp_2016.jpg" alt="2016 U.S. Presidential Election State-Level Bi-Polarization">
+      <div class="map-caption">2016 U.S. Presidential Election State-Level Bi-Polarization ($S = 0.9149$)</div>
+    </div>
+
+    <div class="map-card">
+      <img src="images/005FECbp_20.jpg" alt="2020 U.S. Presidential Election State-Level Bi-Polarization">
+      <div class="map-caption">2020 U.S. Presidential Election State-Level Bi-Polarization ($S = 0.9574$)</div>
+    </div>
+
+    <div class="map-card">
+      <img src="images/009ChiBP_20.jpg" alt="2020 U.S. Presidential Election Chicagoland Precincts Bi-Polarization">
+      <div class="map-caption">2020 U.S. Presidential Election Chicagoland Precincts Bi-Polarization ($S = 0.9775$)</div>
+    </div>
+
+    <div class="map-card">
+      <img src="images/010CHIk5_2020.jpg" alt="2020 U.S. Presidential Election Results Chicagoland Precincts Five-Group Multipolarization">
+      <div class="map-caption">2020 U.S. Presidential Election Chicagoland Precincts Five-Group Multipolarization ($S = 0.986$)</div>
+    </div>
+  </div>
+
+  <p>
+    <a href="projects.html" class="back-link">&larr; Back to all projects</a>
+  </p>
+
+</body>
+</html>
