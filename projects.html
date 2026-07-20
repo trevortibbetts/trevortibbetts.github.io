@@ -5,77 +5,238 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projects | Trevor Tibbetts</title>
   <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; max-width: 900px; margin: 48px auto; padding: 0 16px; line-height: 1.6; }
-    nav a { margin-right: 12px; text-decoration: none; }
-    nav { margin-bottom: 28px; }
-    .tagline { color: #444; margin-top: 0; }
-    .card { border: 1px solid #e5e5e5; border-radius: 12px; padding: 16px; margin: 18px 0; }
-    .card h3 { margin: 0 0 6px 0; }
-    .muted { color: #555; }
-    .meta { font-size: 0.95em; color: #666; margin-top: 6px; }
+    :root {
+      --bg-color: #fafafa;
+      --card-bg: #ffffff;
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --border-color: #e5e7eb;
+    }
+
+    body { 
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; 
+      max-width: 900px; 
+      margin: 48px auto; 
+      padding: 0 20px; 
+      line-height: 1.6; 
+      background-color: var(--bg-color);
+      color: var(--text-main);
+    }
+
+    nav { 
+      margin-bottom: 36px; 
+    }
+
+    nav a { 
+      margin-right: 16px; 
+      text-decoration: none; 
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--accent);
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      margin-bottom: 8px;
+    }
+
+    .tagline { 
+      color: var(--text-muted); 
+      margin-top: 0; 
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+    }
+
+    /* Projects Grid Layout */
+    .projects-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .card { 
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color); 
+      border-radius: 12px; 
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    @media (min-width: 768px) {
+      .card {
+        flex-direction: row;
+        align-items: stretch;
+      }
+    }
+
+    .card-image-container {
+      width: 100%;
+      min-height: 200px;
+      background-color: #e5e7eb;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .card-image-container {
+        width: 300px;
+      }
+    }
+
+    .card-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
+    }
+
+    .card h3 { 
+      margin: 0 0 8px 0; 
+      font-size: 1.35rem;
+    }
+
+    .muted { 
+      color: var(--text-muted); 
+      margin: 0 0 16px 0;
+      font-size: 0.95rem;
+    }
+
+    .meta { 
+      font-size: 0.85rem; 
+      color: #6b7280; 
+      margin-bottom: 16px;
+      background-color: #f3f4f6;
+      padding: 8px 12px;
+      border-radius: 6px;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .btn {
+      background-color: var(--accent);
+      color: #ffffff;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: background-color 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn:hover {
+      background-color: var(--accent-hover);
+    }
   </style>
 </head>
 <body>
+
   <nav>
     <a href="index.html">Home</a>
-    <a href="projects.html">Projects</a>
+    <a href="projects.html" class="active">Projects</a>
     <a href="resume.html">Resume</a>
     <a href="contact.html">Contact</a>
   </nav>
 
   <h1>Projects</h1>
   <p class="tagline">
-    Selected research and public-facing projects using spatial analysis, political geography,
-    and open-source tools.
+    Selected research and public-facing applications utilizing spatial analysis, quantitative political geography, and open-source tools.
   </p>
 
-  <h2>Research Projects</h2>
+  <div class="projects-grid">
 
-  <div class="card">
-    <h3>Spatial Electoral Polarization</h3>
-    <p class="muted">
-      MS Thesis project examining precinct-level election outcomes using spatial statistics.
-      This work applies the <em>S</em>-statistic to measure partisan clustering across multiple
-      geographic scales.
-    </p>
-    <p class="meta">
-      Methods: Python, PySAL, precinct-level election data<br>
-      Status: MS Thesis / Conference Presentation
-    </p>
-    <p>
-      <a href="https://github.com/trevortibbetts">GitHub repository</a>
-    </p>
-  </div>
+    <!-- Project 1: Spatial Electoral Polarization -->
+    <div class="card">
+      <div class="card-image-container">
+        <!-- Swap out with your static preview image -->
+        <img src="images/polarization-thumb.png" alt="Spatial Electoral Polarization Preview" onerror="this.style.display='none';">
+      </div>
+      <div class="card-content">
+        <div>
+          <h3>Spatial Electoral Polarization</h3>
+          <p class="muted">
+            Master's thesis examining precinct-level election outcomes using spatial statistics. This research applies spatial interpolation and the $S$-statistic to measure partisan clustering across multiple geographic scales.
+          </p>
+          <div class="meta">
+            <strong>Methods:</strong> Python, PySAL, Spatial Statistics • <strong>Status:</strong> MS Thesis
+          </div>
+        </div>
+        <div class="btn-container">
+          <a href="polarization.html" class="btn">View Project & Paper &rarr;</a>
+        </div>
+      </div>
+    </div>
 
-  <div class="card">
-    <h3>Drag Queen Migration Map</h3>
-    <p class="muted">
-      A spatial analysis of drag performer migration patterns, exploring how cultural labor,
-      urban scenes, and regional mobility intersect within queer performance networks.
-    </p>
-    <p class="meta">
-      Methods: Python, GIS, spatial visualization<br>
-      Theme: Cultural geography & mobility
-    </p>
-    <p>
-      <a href="https://github.com/trevortibbetts">GitHub repository</a>
-    </p>
-  </div>
+    <!-- Project 2: Subcultural Global City Migration -->
+    <div class="card">
+      <div class="card-image-container">
+        <!-- Swap out with your static preview image -->
+        <img src="images/migration-thumb.png" alt="Subcultural Global City Migration Map Preview" onerror="this.style.display='none';">
+      </div>
+      <div class="card-content">
+        <div>
+          <h3>Subcultural Global City Migration Map</h3>
+          <p class="muted">
+            A dynamic spatial analysis tracking the geographic movements and career trajectories of performers, exploring how cultural labor, regional scenes, and mobility intersect within queer performance networks.
+          </p>
+          <div class="meta">
+            <strong>Methods:</strong> Python, GIS, Spatial Visualization • <strong>Theme:</strong> Cultural Geography
+          </div>
+        </div>
+        <div class="btn-container">
+          <a href="migration.html" class="btn">View Interactive Map &rarr;</a>
+        </div>
+      </div>
+    </div>
 
-  <h2>Public-Facing & Applied Projects</h2>
+    <!-- Project 3: GerrySD -->
+    <div class="card">
+      <div class="card-image-container">
+        <!-- Swap out with your static preview image -->
+        <img src="images/gerrysd-thumb.png" alt="GerrySD Preview" onerror="this.style.display='none';">
+      </div>
+      <div class="card-content">
+        <div>
+          <h3>GerrySD</h3>
+          <p class="muted">
+            An open-source interactive web-mapping tool that allows users to experiment with local redistricting and electoral boundaries in San Diego County, making complex spatial concepts accessible to the public.
+          </p>
+          <div class="meta">
+            <strong>Tools:</strong> p5.js, Leaflet, Turf.js • <strong>Focus:</strong> Civic Education & UI Design
+          </div>
+        </div>
+        <div class="btn-container">
+          <a href="gerrysd.html" class="btn">View Interactive Tool &rarr;</a>
+        </div>
+      </div>
+    </div>
 
-  <div class="card">
-    <h3>Gerry SD</h3>
-    <p class="muted">
-      An interactive project that allows users to experiment with gerrymandering in
-      San Diego County, designed to make redistricting concepts accessible to a public audience.
-    </p>
-    <p class="meta">
-      Focus: Civic education, spatial interaction, UI design
-    </p>
-    <p>
-      <a href="https://github.com/trevortibbetts">GitHub repository</a>
-    </p>
   </div>
 
 </body>
