@@ -1,65 +1,626 @@
+```html
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Resume | Trevor Tibbetts</title>
+
+  <meta
+    name="description"
+    content="Resume and curriculum vitae for Trevor Tibbetts, a geographic information scientist specializing in spatial analysis and electoral polarization."
+  />
+
+  <title>Resume &amp; CV | Trevor Tibbetts</title>
+
   <style>
+    :root {
+      --text: #222;
+      --muted: #5f6368;
+      --border: #d9dce1;
+      --accent: #2457a7;
+      --accent-dark: #173f7d;
+      --surface: #f6f8fa;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       max-width: 900px;
       margin: 48px auto;
-      padding: 0 16px;
+      padding: 0 24px 64px;
+      color: var(--text);
+      background: #fff;
+      font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
       line-height: 1.6;
     }
+
+    a {
+      color: var(--accent);
+      text-underline-offset: 3px;
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--accent-dark);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      margin-bottom: 48px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
     nav a {
-      margin-right: 12px;
+      color: var(--text);
+      font-weight: 600;
       text-decoration: none;
     }
-    nav {
-      margin-bottom: 28px;
+
+    nav a:hover,
+    nav a:focus {
+      color: var(--accent);
     }
+
+    nav a[aria-current="page"] {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.25;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2.2rem, 7vw, 3.4rem);
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      margin: 48px 0 20px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--text);
+      font-size: 1.4rem;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    p {
+      margin: 8px 0;
+    }
+
+    .page-header {
+      margin-bottom: 48px;
+    }
+
     .tagline {
-      color: #444;
-      margin-top: 0;
+      max-width: 680px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.08rem;
     }
-    .muted {
-      color: #555;
+
+    .document-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 28px 0 12px;
     }
-    iframe {
-      margin-top: 24px;
+
+    .document-link {
+      display: inline-block;
+      padding: 10px 16px;
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      color: #fff;
+      background: var(--accent);
+      font: inherit;
+      font-weight: 650;
+      line-height: 1.5;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .document-link:hover,
+    .document-link:focus {
+      color: #fff;
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+    }
+
+    .document-link.secondary {
+      color: var(--accent);
+      background: #fff;
+    }
+
+    .document-link.secondary:hover,
+    .document-link.secondary:focus {
+      color: #fff;
+      background: var(--accent-dark);
+    }
+
+    .document-note {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .cv-header {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    .cv-header h2 {
+      margin: 0 0 8px;
+      padding: 0;
+      border: 0;
+      font-size: 1.8rem;
+    }
+
+    .contact-line {
+      margin: 4px 0;
+      color: var(--muted);
+    }
+
+    .entry {
+      margin-bottom: 24px;
+    }
+
+    .entry-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .entry-date {
+      flex-shrink: 0;
+      color: var(--muted);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .degree,
+    .role,
+    .entry-detail {
+      margin-top: 3px;
+    }
+
+    .role {
+      font-weight: 600;
+    }
+
+    .entry-detail {
+      color: var(--muted);
+    }
+
+    .citation {
+      margin: 0 0 18px;
+      padding-left: 1.5rem;
+      text-indent: -1.5rem;
+    }
+
+    .skills-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skills-list li {
+      margin-bottom: 12px;
+    }
+
+    footer {
+      margin-top: 64px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 650px) {
+      body {
+        margin-top: 28px;
+        padding-right: 18px;
+        padding-left: 18px;
+      }
+
+      nav {
+        margin-bottom: 36px;
+      }
+
+      .entry-heading {
+        display: block;
+      }
+
+      .entry-date {
+        display: block;
+        margin-top: 3px;
+      }
+
+      .document-link {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    @media print {
+      body {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        font-size: 10.5pt;
+      }
+
+      nav,
+      .page-header,
+      footer {
+        display: none;
+      }
+
+      .cv-header {
+        padding: 0 0 14px;
+        border: 0;
+        border-bottom: 2px solid #000;
+        border-radius: 0;
+        background: transparent;
+      }
+
+      h2 {
+        margin-top: 24px;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .entry,
+      .citation {
+        break-inside: avoid;
+      }
     }
   </style>
 </head>
-<body>
 
-  <nav>
+<body>
+  <nav aria-label="Primary navigation">
     <a href="index.html">Home</a>
     <a href="projects.html">Projects</a>
-    <a href="resume.html">Resume</a>
+    <a href="resume.html" aria-current="page">Resume/CV</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <h1>Resume</h1>
-  <p class="tagline">Current professional resume</p>
+  <main>
+    <header class="page-header">
+      <h1>Resume &amp; CV</h1>
 
-  <p>
-    <a href="assets/TibbettsResume.pdf" target="_blank" rel="noopener">
-      Download resume (PDF)
-    </a>
-  </p>
+      <p class="tagline">
+        Professional experience, academic research, presentations, and
+        technical qualifications.
+      </p>
 
-  <p class="muted">
-    This is my most recent resume. For academic work and research projects,
-    see the <a href="projects.html">Projects</a> page.
-  </p>
+      <div class="document-links" aria-label="Resume and CV options">
+        <a
+          class="document-link"
+          href="assets/TibbettsResume.pdf"
+          target="_blank"
+          rel="noopener"
+        >
+          View Resume (PDF)
+        </a>
 
-  <iframe
-    src="assets/TibbettsResume.pdf"
-    width="100%"
-    height="900px"
-    style="border: none;">
-  </iframe>
+        <button
+          class="document-link secondary"
+          type="button"
+          onclick="window.print()"
+        >
+          Print or Save CV
+        </button>
+      </div>
 
+      <p class="document-note">
+        The resume provides a concise professional overview. The curriculum
+        vitae below includes a more complete record of my academic work,
+        research, presentations, and experience.
+      </p>
+    </header>
+
+    <article aria-labelledby="cv-title">
+      <header class="cv-header">
+        <h2 id="cv-title">Trevor Tibbetts</h2>
+
+        <p class="contact-line">
+          San Diego, California
+        </p>
+
+        <p class="contact-line">
+          <a href="tel:+18585006734">+1 (858) 500-6734</a>
+          ·
+          <a href="mailto:ttibbetts2019@gmail.com">
+            ttibbetts2019@gmail.com
+          </a>
+        </p>
+
+        <p class="contact-line">
+          <a
+            href="https://github.com/trevortibbetts"
+            target="_blank"
+            rel="noopener"
+          >
+            GitHub
+          </a>
+          ·
+          <a
+            href="https://www.linkedin.com/in/trevor-tibbetts"
+            target="_blank"
+            rel="noopener"
+          >
+            LinkedIn
+          </a>
+        </p>
+      </header>
+
+      <section aria-labelledby="education-heading">
+        <h2 id="education-heading">Education</h2>
+
+        <div class="entry">
+          <div class="entry-heading">
+            <h3>San Diego State University</h3>
+            <span class="entry-date">2026</span>
+          </div>
+
+          <p class="degree">
+            M.S. in Geography, Concentration in Geographic Information Science
+          </p>
+
+          <p>
+            <strong>Thesis:</strong>
+            <cite>
+              From Distribution to a Map: A Spatially Explicit Index for
+              Measuring Electoral Polarization
+            </cite>
+          </p>
+
+          <p class="entry-detail">
+            <strong>Committee:</strong>
+            Sergio Rey, Chair; Ming-Hsiang Tsou; Stephen Goggin
+          </p>
+        </div>
+
+        <div class="entry">
+          <div class="entry-heading">
+            <h3>DePaul University</h3>
+            <span class="entry-date">2024</span>
+          </div>
+
+          <p class="degree">
+            Graduate Certificate in Geographic Information Systems
+          </p>
+        </div>
+
+        <div class="entry">
+          <div class="entry-heading">
+            <h3>Loyola University Chicago</h3>
+            <span class="entry-date">2023</span>
+          </div>
+
+          <p class="degree">
+            B.A. in Political Science; B.A. in Global Studies; Minor in Urban
+            Studies
+          </p>
+
+          <p class="entry-detail">
+            Graduated <em>cum laude</em>; Pi Sigma Alpha
+          </p>
+        </div>
+      </section>
+
+      <section aria-labelledby="written-work-heading">
+        <h2 id="written-work-heading">Written Work</h2>
+
+        <h3>Thesis</h3>
+
+        <p class="citation">
+          Tibbetts, Trevor Patterson. 2026.
+          <a
+            href="https://www.proquest.com/docview/3350665684?pq-origsite=gscholar&amp;fromopenview=true"
+            target="_blank"
+            rel="noopener"
+          >
+            <cite>
+              From Distribution to a Map: A Spatially Explicit Index for
+              Measuring Electoral Polarization
+            </cite>
+          </a>.
+          Master’s thesis, Department of Geography, San Diego State University.
+          ProQuest Dissertations &amp; Theses. Publication No. 32739073.
+        </p>
+
+        <h3>Working Papers</h3>
+
+        <p class="citation">
+          Tibbetts, T., &amp; Rey, S. “Scale, Geometry, and Partisan
+          Clustering: Evaluating Spatial Polarization in U.S. Elections.”
+          Manuscript in preparation.
+        </p>
+      </section>
+
+      <section aria-labelledby="presentations-heading">
+        <h2 id="presentations-heading">Conference Presentations</h2>
+
+        <p class="citation">
+          Tibbetts, T. 2026. “The Geography of Division: A Statistical Tour of
+          Polarization.” Paper presented at the Midwest Political Science
+          Association Annual Conference, Chicago, Illinois, April.
+        </p>
+
+        <p class="citation">
+          Tibbetts, T. 2026. “Measuring Spatial Polarization under Alternative
+          Redistricting Scenarios: A California Case Study.” Paper presented
+          at the American Association of Geographers Annual Meeting, San
+          Francisco, California, March.
+        </p>
+
+        <p class="citation">
+          Tibbetts, T., &amp; Rey, S. 2025. “The Geography of Division: A
+          Statistical Tour of Polarization.” Paper presented at the North
+          American Regional Science Council Annual Meeting, Denver, Colorado,
+          November.
+        </p>
+      </section>
+
+      <section aria-labelledby="university-experience-heading">
+        <h2 id="university-experience-heading">University Experience</h2>
+
+        <div class="entry">
+          <div class="entry-heading">
+            <h3>Center for Open Geographical Science</h3>
+            <span class="entry-date">2024–2026</span>
+          </div>
+
+          <p class="role">Graduate Assistant</p>
+          <p class="entry-detail">San Diego State University</p>
+        </div>
+
+        <div class="entry">
+          <div class="entry-heading">
+            <h3>Spatial Analysis in the Social Sciences Lab</h3>
+            <span class="entry-date">2024–2026</span>
+          </div>
+
+          <p class="role">Research Assistant</p>
+          <p class="entry-detail">San Diego State University</p>
+        </div>
+
+        <div class="entry">
+          <div class="entry-heading">
+            <h3>Institute for Racial Justice</h3>
+            <span class="entry-date">2022</span>
+          </div>
+
+          <p class="role">Undergraduate Research Assistant</p>
+          <p class="entry-detail">Loyola University Chicago</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="professional-experience-heading">
+        <h2 id="professional-experience-heading">Professional Experience</h2>
+
+        <div class="entry">
+          <div class="entry-heading">
+            <h3>San Diego Padres</h3>
+            <span class="entry-date">2025–Present</span>
+          </div>
+
+          <p class="role">Ticket Service Representative</p>
+          <p class="entry-detail">San Diego, California</p>
+        </div>
+
+        <div class="entry">
+          <div class="entry-heading">
+            <h3>MacLean Collection</h3>
+            <span class="entry-date">2023</span>
+          </div>
+
+          <p class="role">Collections Intern</p>
+          <p class="entry-detail">Lake Forest, Illinois</p>
+        </div>
+
+        <div class="entry">
+          <div class="entry-heading">
+            <h3>Chicago Public Schools</h3>
+            <span class="entry-date">2022–2024</span>
+          </div>
+
+          <p class="role">Head Swim Coach</p>
+          <p class="entry-detail">Chicago, Illinois</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="honors-heading">
+        <h2 id="honors-heading">Honors &amp; Awards</h2>
+
+        <div class="entry">
+          <div class="entry-heading">
+            <h3>Pi Sigma Alpha</h3>
+            <span class="entry-date">April 2023</span>
+          </div>
+
+          <p class="entry-detail">
+            Department of Political Science, Loyola University Chicago
+          </p>
+        </div>
+
+        <div class="entry">
+          <div class="entry-heading">
+            <h3>Dean’s List</h3>
+            <span class="entry-date">2020–2022</span>
+          </div>
+
+          <p class="entry-detail">
+            Loyola University Chicago — Spring 2020, Fall 2020, and Fall 2022
+          </p>
+        </div>
+      </section>
+
+      <section aria-labelledby="skills-heading">
+        <h2 id="skills-heading">Technical Skills</h2>
+
+        <ul class="skills-list">
+          <li>
+            <strong>Programming and data analysis:</strong>
+            Python, R, JavaScript, Git, LaTeX, and Make
+          </li>
+
+          <li>
+            <strong>Python libraries:</strong>
+            pandas, scikit-learn, SciPy, Matplotlib, seaborn, GeoPandas, and
+            PySAL
+          </li>
+
+          <li>
+            <strong>R packages:</strong>
+            tidyverse, sf, sp, sfdep, spdep, sphet, splm, nlme, lme4, and
+            lavaan
+          </li>
+
+          <li>
+            <strong>Geographic information systems:</strong>
+            ArcGIS Pro, GeoPandas, PySAL, spatial statistics, and spatial data
+            visualization
+          </li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Trevor Tibbetts</p>
+  </footer>
 </body>
 </html>
+```
